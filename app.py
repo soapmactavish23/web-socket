@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, render_template
 
 from payments.pix import Pix
 from repository.database import db
@@ -45,7 +45,7 @@ def pix_confirmation():
 
 @app.route("/payments/pix/<int:payment_id>", methods=["GET"])
 def payment_pix_page(payment_id):
-    return "pagamento pix"
+    return render_template('payment.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
